@@ -38,18 +38,33 @@ addSmurf = data => {
   render() {
     return (
       <div className="App">
-      <NavLink to='/' > Smurfs </NavLink>
-      <NavLink to='/smurf-form'>Add a smurf</NavLink>
+
+      <NavLink to='/' activeStyle={{
+        textDecoration: 'none',
+        fontSize: '55px',
+        color: 'white'
+      }}
+      > Smurfs 
+      </NavLink>
+
+      <NavLink to='/smurf-form'
+      activeClassName="form"
+        formStyle={{
+        textDecoration: 'none',
+        fontSize: '55px',
+        color: 'white'
+      }}> 
+            Add a smurf
+      </NavLink>
       
         <Route path='/smurf-form' render ={props => <SmurfForm {...props}
         addSmurf={this.addSmurf} /> } />
 
-
-
         <Route exact path='/' render={props => <Smurfs 
         {...props}
         smurfs={this.state.smurfs} /> } />
-      </div>
+
+      </div> // end div
     );
   }
 }
